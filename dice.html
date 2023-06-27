@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dice.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>LUDO GAME 🎲</h2>
+
+        <div class="dice">
+            <p>Player 1 </p>
+            <img src="images/dice1.png" alt="wait" id="check1st">
+        </div>
+
+        <div class="dice">
+            <p>Player 2 </p>
+            <img src="images/dice2.png" alt="wait" id="check2nd">
+        </div>
+
+        <div>
+            <button onclick="dicegame()">PLAY</button>
+        </div>
+
+    </div>
+
+    <script>
+        dicegame = () => {
+
+            const player_1 = Math.floor(Math.random() * 6) + 1; // add +1 3, 94)becoz random() gives no. less than 5
+            // const player_1_dice = "images/dice" + player_1 + ".png";  // using string so3, 94) its too complicated
+            const player_1_dice = `images/dice${player_1}.png`; //apply backticks for make it easy 3, 94)to understand
+            document.getElementById("check1st").setAttribute('src', player_1_dice);
+
+
+            const player_2 = Math.floor(Math.random() * 6) + 1;
+            const player_2_dice = `images/dice${player_2}.png`;
+            document.getElementById("check2nd").setAttribute('src', player_2_dice);
+
+            if (player_1 > player_2) {
+                document.querySelector('h2').innerHTML = ('Player 1 won 🥳 🎊')
+            } else if (player_1 < player_2) {
+                document.querySelector('h2').innerHTML = ('Player 2 won 🎉 🥳 ')
+            } else {
+                document.querySelector('h2').innerHTML = ('Game-Draw 😑 😒')
+            }
+        }
+    </script>
+
+</body>
+
+</html>
